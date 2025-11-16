@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Cadastrar Novo Voluntário</h2>
+
+<form method="post" class="form-card">
+
+    {% if error %}
+    <div class="alert">{{ error }}</div>
+    {% endif %}
+
+    <label>Código (senha de acesso):</label>
+    <input type="text" name="code" required>
+
+    <label>Nome:</label>
+    <input type="text" name="name" required>
+
+    <label>Função:</label>
+    <input type="text" name="funcao" required>
+
+    <label>Número (telefone):</label>
+    <input type="text" name="numero" required>
+
+    <label>Endereço:</label>
+    <input type="text" name="endereco" required>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a class="button" href="/admin">Voltar</a>
+
+{% endblock %}

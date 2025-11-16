@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Editar Voluntário</h2>
+
+<form method="post" class="form-card">
+
+    <label>Código:</label>
+    <input type="text" value="{{ user.code }}" disabled>
+
+    <label>Nome:</label>
+    <input type="text" name="name" value="{{ user.name }}" required>
+
+    <label>Função:</label>
+    <input type="text" name="funcao" value="{{ user.funcao }}" required>
+
+    <label>Número (telefone):</label>
+    <input type="text" name="numero" value="{{ user.numero }}" required>
+
+    <label>Endereço:</label>
+    <input type="text" name="endereco" value="{{ user.endereco }}" required>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a class="button" href="/admin">Voltar</a>
+
+{% endblock %}

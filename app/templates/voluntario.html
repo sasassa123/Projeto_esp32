@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Bem-vindo, {{ session.voluntario }}</h2>
+
+<p>Lista de voluntários cadastrados:</p>
+<ul class="listagem">
+    {% for v in nomes %}
+    <li>{{ v.name }}</li>
+    {% endfor %}
+</ul>
+
+<a href="/logout" class="btn">Sair</a>
+{% endblock %}

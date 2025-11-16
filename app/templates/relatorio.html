@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Relatório · Sistema de Acessos{% endblock %}
+{% block content %}
+<div class="toolbar">
+  <h1>Relatório de Acessos</h1>
+  <div class="actions">
+    <form method="get" class="inline-form">
+      <label for="dia" class="sr">Data</label>
+      <input type="date" id="dia" name="dia" value="{{ dia or '' }}">
+      <button class="btn" type="submit">Filtrar</button>
+      <a class="btn-outline" href="{{ url_for('relatorio') }}">Limpar</a>
+    </form>
+    <a class="btn" href="/relatorio/pdf?dia={{ dia }}">📥 Baixar PDF</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Código</th>
+          <th>Ação</th>
+          <th>Horário</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in registros %}
+        <tr>
+          <td>{{ r.name }}</td>
+          <td>{{ r.code }}</td>
+          <td>
+            <span class="badge {{ 'ok' if r.acao=='ENTROU' else 'warn' }}">
+              {{ r.acao }}
+            </span>
+          </td>
+          <td>{{ r.horario }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4" class="muted">Sem registros para o filtro selecionado.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="form-actions">
+    <a class="btn-outline" href="{{ url_for('admin') }}">Voltar ao painel</a>
+  </div>
+</div>
+{% endblock %}

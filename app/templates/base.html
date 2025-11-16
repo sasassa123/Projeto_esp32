@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title or "Sistema de Acessos" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+{% if session.get("admin") or session.get("voluntario") %}
+<div class="topbar">
+    <div class="container topbar-inner">
+
+        <div class="brand">
+            <a href="/admin">Sistema de Voluntários</a>
+        </div>
+
+        <div class="nav">
+
+            {% if session.get("admin") %}
+                <a href="/admin">Painel</a>
+                <a href="/relatorio">Relatório</a>
+                <a href="/logout">Sair</a>
+            {% elif session.get("voluntario") %}
+                <a href="/voluntario">Voluntários</a>
+                <a href="/logout">Sair</a>
+            {% endif %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

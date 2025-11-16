@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Detalhes do Voluntário</h2>
+
+    <p><strong>Nome:</strong> {{ user.name }}</p>
+    <p><strong>Código:</strong> {{ user.code }}</p>
+    <p><strong>Função:</strong> {{ user.funcao or "Não informada" }}</p>
+    <p><strong>Endereço:</strong> {{ user.endereco or "Não informado" }}</p>
+    <p><strong>Número:</strong> {{ user.numero or "Não informado" }}</p>
+    <p><strong>Status atual:</strong> {{ "presente ✅" if user.status == 1 else "Fora ⛔" }}</p>
+    <p><strong>Cadastrado em:</strong> {{ user.created_at }}</p>
+
+    <br>
+    <a class="btn" href="/admin">Voltar</a>
+</div>
+
+{% endblock %}
