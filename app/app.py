@@ -22,7 +22,7 @@ DB_CFG = {
 }
 
 
-HIVEMQ_HOST = "c3f995e2e3fc4989bbdad3830780078e.s1.eu.hivemq.cloud"
+HIVEMQ_HOST = ""
 HIVEMQ_PORT = 8883
 HIVEMQ_USER = "Esp32"
 HIVEMQ_PASS = "Esp32pass"
@@ -379,3 +379,4 @@ def logout():
 if __name__ == "__main__":
     print("✅ Backend rodando em http://localhost:5000")
     app.run(host="0.0.0.0", port=5000, debug=True)
+
