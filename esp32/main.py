@@ -18,7 +18,7 @@ CLIENT_ID = "esp32_display_1"
 TOPIC = b"access/scan"
 
 
-BACKEND_URL = "http://10.150.12.201:5000/api/scan"  # TROQUE PARA SEU IP SE NECESSÁRIO
+BACKEND_URL = "http://10.150.12.:5000/api/scan"  
 
 
 i2c = I2C(0, scl=Pin(22), sda=Pin(21), freq=400000)
