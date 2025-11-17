@@ -87,29 +87,6 @@ def api_scan():
     return jsonify({"published": True, "payload": payload})
 
 
-@app.route("/api/add", methods=["POST"])
-def api_add():
-    data = request.get_json() or request.form
-    code = data.get("code")
-    name = data.get("name")
-
-    if not code or not name:
-        return jsonify({"error": "code and name required"}), 400
-
-    conn = db_connect()
-    cur = conn.cursor()
-    try:
-        cur.execute("INSERT INTO users (code, name) VALUES (%s, %s)", (code, name))
-        conn.commit()
-    except mysql.connector.IntegrityError:
-        cur.close()
-        conn.close()
-        return jsonify({"error": "code exists"}), 400
-
-    cur.close()
-    conn.close()
-    return jsonify({"added": True})
-
 
 
 @app.route("/")
@@ -379,5 +356,6 @@ def logout():
 if __name__ == "__main__":
     print(" Backend rodando em http://localhost:5000")
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 
