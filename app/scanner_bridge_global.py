@@ -21,14 +21,14 @@ def enviar_codigo(codigo):
             acao = data.get("acao")
             nome = data.get("name")
             if acao == "ENTROU":
-                print(f"✅ {nome} ENTROU")
+                print(f" {nome} ENTROU")
             else:
-                print(f"🚪 {nome} SAIU")
+                print(f" {nome} SAIU")
         else:
-            print("⛔ Código não autorizado")
+            print(" Código não autorizado")
 
     except Exception as e:
-        print("⚠️ Erro ao conectar com o backend:", e)
+        print(" Erro ao conectar com o backend:", e)
 
 
 def on_press(key):
@@ -48,7 +48,8 @@ def on_press(key):
 listener = keyboard.Listener(on_press=on_press)
 listener.start()
 
-print("✅ Scanner ativo. Passe o crachá em QUALQUER tela.")
+print(" Scanner ativo. Passe o crachá em QUALQUER tela.")
 print("Pressione ENTER para enviar o código lido.")
 
 listener.join()
+
