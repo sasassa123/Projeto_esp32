@@ -11,7 +11,7 @@ def enviar_codigo(codigo):
     if not codigo:
         return
 
-    print(f"\n📡 Código enviado: {codigo}")
+    print(f"\n Código enviado: {codigo}")
 
     try:
         r = requests.post(API_URL, json={"code": codigo}, timeout=2)
@@ -52,4 +52,5 @@ print(" Scanner ativo. Passe o crachá em QUALQUER tela.")
 print("Pressione ENTER para enviar o código lido.")
 
 listener.join()
+
 
